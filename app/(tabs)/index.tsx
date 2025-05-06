@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Switch } from 'react-native';
 import { MaterialIcons, FontAwesome5, Ionicons } from '@expo/vector-icons';
 
-export default function MechanicDashboard() {
+export default function HomeScreen({ navigation }: { navigation: any }) {
   const [isAvailable, setIsAvailable] = useState(true);
 
   const toggleAvailability = () => setIsAvailable((prev) => !prev);
@@ -69,11 +69,17 @@ export default function MechanicDashboard() {
           <MaterialIcons name="dashboard" size={24} color="#4F46E5" />
           <Text className="text-xs text-indigo-700">Dashboard</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="items-center">
+        <TouchableOpacity
+          className="items-center"
+          onPress={() => navigation.navigate('History')}
+        >
           <Ionicons name="time-outline" size={24} color="gray" />
           <Text className="text-xs text-gray-500">History</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="items-center">
+        <TouchableOpacity
+          className="items-center"
+          onPress={() => navigation.navigate('Profile')}
+        >
           <FontAwesome5 name="user-cog" size={24} color="gray" />
           <Text className="text-xs text-gray-500">Profile</Text>
         </TouchableOpacity>
